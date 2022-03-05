@@ -1,2 +1,6 @@
 content:
 - Standard logger
+- Standard functional interfaces
+- Generics and Object
+- Optional
+- Function composition

@@ -1,13 +1,16 @@
 package tictactoe;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class StatusBar extends JPanel {
     final JLabel labelStatus = new JLabel("Game is not started");
-    final JButton buttonReset = new JButton("Reset");
-    final BorderLayout borderLayout = new BorderLayout();
+    final JButton buttonReset = new JButton("       Reset       ");
+    final BorderLayout borderLayout = new BorderLayout(5, 5);
+
+    final Border border = BorderFactory.createLineBorder(Color.BLACK);
 
     TicTacToe ticTacToe;
 
@@ -18,12 +21,24 @@ public class StatusBar extends JPanel {
 
     {
         labelStatus.setName("LabelStatus");
+        labelStatus.setBackground(Color.BLACK);
+        labelStatus.setForeground(Color.LIGHT_GRAY);
+        labelStatus.setFont(new Font("", Font.BOLD, 15));
+
         buttonReset.setName("ButtonReset");
+        buttonReset.setBackground(Color.BLACK);
+        buttonReset.setForeground(Color.yellow);
+        buttonReset.setFocusPainted(false);
+        buttonReset.setBorder(border);
+        buttonReset.setFont(new Font("", Font.BOLD, 15));
     }
 
     public StatusBar(String name, TicTacToe ticTacToe) {
         setLayout(borderLayout);
         setName(name);
+        setBackground(Color.BLACK);
+        setBorder(border);
+
         this.ticTacToe = ticTacToe;
 
         add(labelStatus, BorderLayout.WEST);

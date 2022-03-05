@@ -400,9 +400,9 @@ files:
 - name: src/tictactoe/GridStatusChecker.java
   visible: true
   learner_created: true
-feedback_link: https://hyperskill.org/projects/174/stages/898/implement#comment
+feedback_link: https://hyperskill.org/learn/step/12895#comment
 status: Solved
 feedback:
   message: Congratulations!
-  time: Thu, 03 Mar 2022 23:49:32 UTC
-record: -1
+  time: Sat, 05 Mar 2022 01:57:07 UTC
+record: 2

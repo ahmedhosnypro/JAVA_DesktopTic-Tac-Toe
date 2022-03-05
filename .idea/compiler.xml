@@ -9,6 +9,26 @@
       <module name="Desktop_Tic-Tac-Toe.Desktop_Tic-Tac-Toe-task-build-test-results.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Desktop_Tic-Tac-Toe-task-build-tmp.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Desktop_Tic-Tac-Toe-task.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Function_composition-Disjunct_all.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Function_composition-The_chain_of_responsibility.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Function_composition-Theory.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Generics_and_Object-Boxes_are_not_just_objects.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Generics_and_Object-Correct_the_usage_of_non-generic_class.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Generics_and_Object-Initialize_an_object_of_a_generic_class.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Generics_and_Object-Instance_without_type_argument.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Generics_and_Object-Reusing_code_with_Object.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Generics_and_Object-Theory.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Generics_and_Object-What_is_a_type.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Generics_and_Object-What_is_wrong.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Optional-A_suitable_method.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Optional-Check_an_Optional_value.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Optional-Create_an_Optional_value.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Optional-Sum_up_optional_values.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Optional-The_address_book.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Optional-Theory.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Standard_functional_interfaces-Accounts.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Standard_functional_interfaces-Ternary_operator.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Standard_functional_interfaces-Theory.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Standard_logger-Find_integer_values_of_Log_levels.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Standard_logger-Handler_Classes.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Standard_logger-Theory.main" target="11" />
