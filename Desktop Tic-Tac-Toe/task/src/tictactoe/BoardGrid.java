@@ -1,27 +1,22 @@
 package tictactoe;
 
-import javax.swing.*;
-import java.util.Iterator;
+
+import java.util.Collections;
 
 public class BoardGrid {
-    final Board board;
 
-    private char[][] grid = new char[3][3];
+    private final char[][] grid = new char[3][3];
     char[] diagonal1 = new char[3];
     char[] diagonal2 = new char[3];
     private final char[][] rotatedGrid = new char[3][3];
     private char[][] sides;
 
 
-    BoardGrid(Board board) {
-        this.board = board;
-        Iterator<JButton> cellsIterator = board.getButtonList().iterator();
+    BoardGrid() {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (cellsIterator.hasNext()) {
-                    grid[i][j] = cellsIterator.next().getText().charAt(0);
-                }
+                grid[i][j] = ' ';
             }
         }
         setRotatedGrid();
@@ -30,8 +25,8 @@ public class BoardGrid {
         setSides();
     }
 
-    public void setGrid(int row, int column, char XO) {
-        grid[row][column] = XO;
+    public void setGrid(int row, int column, char gameChar) {
+        grid[row][column] = gameChar;
         setRotatedGrid();
         setDiagonal1();
         setDiagonal2();

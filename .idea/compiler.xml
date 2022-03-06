@@ -9,9 +9,32 @@
       <module name="Desktop_Tic-Tac-Toe.Desktop_Tic-Tac-Toe-task-build-test-results.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Desktop_Tic-Tac-Toe-task-build-tmp.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Desktop_Tic-Tac-Toe-task.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Collectors-Set_average.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Collectors-The_product_of_squares.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Collectors-Theory.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Collectors-Сollect_parameter.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Comparator-Comparing_numbers.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Comparator-Comparing_values.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Comparator-Method_name.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Comparator-Most_valuable_items.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Comparator-Multiple_fields.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Comparator-Non-abstract_methods.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Comparator-Odd_and_even.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Comparator-Reverse_sorting.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Comparator-Sort_users.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Comparator-Theory.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Function_composition-Disjunct_all.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Function_composition-The_chain_of_responsibility.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Function_composition-Theory.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Functional_data_processing_with_streams-A_sorted_stream.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Functional_data_processing_with_streams-Count_passwords.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Functional_data_processing_with_streams-Create_a_stream_from_a_list.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Functional_data_processing_with_streams-Finding_max_and_min_elements.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Functional_data_processing_with_streams-Intermediate_operations.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Functional_data_processing_with_streams-Print_elements_of_a_stream.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Functional_data_processing_with_streams-Statements_about_stream_operations.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Functional_data_processing_with_streams-Terminal_operations_with_streams.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Functional_data_processing_with_streams-Theory.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Generics_and_Object-Boxes_are_not_just_objects.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Generics_and_Object-Correct_the_usage_of_non-generic_class.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Generics_and_Object-Initialize_an_object_of_a_generic_class.main" target="11" />
@@ -20,18 +43,48 @@
       <module name="Desktop_Tic-Tac-Toe.Topics-Generics_and_Object-Theory.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Generics_and_Object-What_is_a_type.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Generics_and_Object-What_is_wrong.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Infinite_streams-Generating_cats.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Infinite_streams-Theory.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Lambda_expressions-Creating_a_closure.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Lambda_expressions-Expression_closure.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Lambda_expressions-Expressions.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Lambda_expressions-Max_of_two_integers.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Lambda_expressions-Next_even_number.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Lambda_expressions-Parts_of code.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Lambda_expressions-Production_of_all_numbers_in_the_range.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Lambda_expressions-Theory.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Map_and_flatMap-Count_words_without_repetitions.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Map_and_flatMap-Sorting_the_absolute_values.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Map_and_flatMap-Theory.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Optional-A_suitable_method.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Optional-Check_an_Optional_value.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Optional-Create_an_Optional_value.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Optional-Sum_up_optional_values.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Optional-The_address_book.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Optional-Theory.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Reduction_methods-Range_quadratic_sum.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Reduction_methods-Theory.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Standard_functional_interfaces-Accounts.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Standard_functional_interfaces-Ternary_operator.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Standard_functional_interfaces-Theory.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Standard_logger-Find_integer_values_of_Log_levels.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Standard_logger-Handler_Classes.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Standard_logger-Theory.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Stream_filtering-Check_if_a_number_is_prime.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Stream_filtering-Numbers_filtering.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Stream_filtering-Omitting_long_strings.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Stream_filtering-Theory.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Stream_pipelines-Counting_words.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Stream_pipelines-The_sum_of_odd_numbers.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Stream_pipelines-The_total_sum_of_canceled_transactions.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Stream_pipelines-Theory.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Streams_of_primitives-A_stream_without_zero.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Streams_of_primitives-Producing_streams.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Streams_of_primitives-The_average_salary.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Streams_of_primitives-Theory.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Taking_elements-Secret_codes.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Taking_elements-Sorting_and_skipping_numbers.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Taking_elements-Theory.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.util.main" target="11" />
     </bytecodeTargetLevel>
   </component>

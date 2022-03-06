@@ -4,3 +4,14 @@ content:
 - Generics and Object
 - Optional
 - Function composition
+- Comparator
+- Functional data processing with streams
+- Stream filtering
+- Map and flatMap
+- Reduction methods
+- Collectors
+- Infinite streams
+- Taking elements
+- Lambda expressions
+- Streams of primitives
+- Stream pipelines

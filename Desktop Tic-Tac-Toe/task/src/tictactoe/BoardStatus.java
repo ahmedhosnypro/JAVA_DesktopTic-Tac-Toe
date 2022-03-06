@@ -6,5 +6,5 @@ public enum BoardStatus {
     O_TURN,
     X_WINS,
     O_WINS,
-    DRAW;
+    DRAW
 }

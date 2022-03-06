@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class BoardCell extends JButton {
     Board board;
-    final Border whiteLine = BorderFactory.createLineBorder(Color.MAGENTA);
+    final transient Border whiteLine = BorderFactory.createLineBorder(Color.DARK_GRAY);
 
 
     public BoardCell(String name, Board board) {

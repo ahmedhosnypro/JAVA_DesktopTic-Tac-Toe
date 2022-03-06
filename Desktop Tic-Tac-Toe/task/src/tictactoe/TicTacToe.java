@@ -4,27 +4,24 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TicTacToe extends JFrame {
-    final BorderLayout borderLayout = new BorderLayout();
+    final Dimension dimension = new Dimension(450, 450);
+    final ToolBar toolBar = new ToolBar("Tool Bar", this);
+    final Board board = new Board("Board", this);
     final StatusBar statusBar = new StatusBar("Status Bar", this);
-    final Board board = new Board("Board", statusBar);
+
 
     public TicTacToe() {
         setTitle("Tic Tac Toe");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(450, 450);
-        setLayout(borderLayout);
+        setMinimumSize(dimension);
+        setPreferredSize(dimension);
+        setLayout(new BorderLayout());
 
-        addBoard();
-        addStatusBar();
+        add(toolBar, BorderLayout.NORTH);
+        add(board, BorderLayout.CENTER);
+        add(statusBar, BorderLayout.SOUTH);
 
         setVisible(true);
-    }
-
-    private void addBoard() {
-        add(board, BorderLayout.CENTER);
-    }
-
-    private void addStatusBar() {
-        add(statusBar, BorderLayout.SOUTH);
     }
 }

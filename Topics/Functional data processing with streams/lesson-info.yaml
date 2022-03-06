@@ -1,0 +1,10 @@
+content:
+- Theory
+- Statements about stream operations
+- Terminal operations with streams
+- Create a stream from a list
+- Count passwords
+- Print elements of a stream
+- Intermediate operations
+- Finding max and min elements
+- A sorted stream

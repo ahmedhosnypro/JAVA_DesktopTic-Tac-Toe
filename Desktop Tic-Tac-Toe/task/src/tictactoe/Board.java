@@ -1,17 +1,15 @@
 package tictactoe;
 
 import javax.swing.*;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.util.LinkedHashSet;
 
 public class Board extends JPanel {
-    GridLayout boardLayout = new GridLayout(3, 3);
+    TicTacToe ticTacToe;
+    final transient Border border = BorderFactory.createLineBorder(Color.BLACK);
 
     BoardStatus boardStatus = BoardStatus.NOT_STARTED;
-
-    final Border border = new BevelBorder(3, Color.BLACK, Color.BLACK);
 
     //buttons
     final LinkedHashSet<JButton> buttonList = new LinkedHashSet<>(); //list of buttons
@@ -25,8 +23,17 @@ public class Board extends JPanel {
     final JButton buttonC2 = new BoardCell("ButtonC2", this);
     final JButton buttonC3 = new BoardCell("ButtonC3", this);
 
-    //add buttons to buttonList
-    {
+
+    transient BoardGrid boardGrid = new BoardGrid();
+    final transient GridStatusChecker gridStatusChecker = new GridStatusChecker(this);
+
+    public Board(String name, TicTacToe ticTacToe) {
+        this.ticTacToe = ticTacToe;
+        setName(name);
+        setLayout(new GridLayout(3, 3));
+        setBorder(border);
+
+        //add buttons to buttonList
         buttonList.add(buttonA3);
         buttonList.add(buttonB3);
         buttonList.add(buttonC3);
@@ -36,17 +43,7 @@ public class Board extends JPanel {
         buttonList.add(buttonA1);
         buttonList.add(buttonB1);
         buttonList.add(buttonC1);
-    }
 
-
-    BoardGrid boardGrid = new BoardGrid(this);
-    StatusBar statusBar;
-    final GridStatusChecker gridStatusChecker = new GridStatusChecker(this);
-
-    public Board(String name, StatusBar statusBar) {
-        this.statusBar = statusBar;
-        setName(name);
-        setLayout(boardLayout);
         addButtons();
     }
 
@@ -62,19 +59,22 @@ public class Board extends JPanel {
             int finalColumn = column;
             button.addActionListener(e -> {
                 if (button.getText().equals(" ")) {
-                    char XO = ' ';
-                    switch (getBoardStatus()) {
+                    char gameChar = ' ';
+                    BoardStatus status = getBoardStatus();
+                    switch (status) {
                         case X_TURN:
                         case NOT_STARTED:
-                            XO = 'X';
+                            gameChar = 'X';
                             break;
                         case O_TURN:
-                            XO = 'O';
+                            gameChar = 'O';
+                            break;
+                        default:
                             break;
                     }
-                    boardGrid.setGrid(finalRow, finalColumn, XO);
-                    statusBar.updateLabelStatus();
-                    button.setText(String.valueOf(XO));
+                    boardGrid.setGrid(finalRow, finalColumn, gameChar);
+                    ticTacToe.statusBar.updateLabelStatus();
+                    button.setText(String.valueOf(gameChar));
                 }
             });
             if (column == 2) {
@@ -88,16 +88,12 @@ public class Board extends JPanel {
 
     public void resetCells() {
         buttonList.forEach(b -> b.setText(" "));
-        boardGrid = new BoardGrid(this);
+        boardGrid = new BoardGrid();
         setBoardStatus(BoardStatus.NOT_STARTED);
     }
 
     public BoardStatus getBoardStatus() {
         return gridStatusChecker.checkGridStatus();
-    }
-
-    public LinkedHashSet<JButton> getButtonList() {
-        return buttonList;
     }
 
     public void setBoardStatus(BoardStatus boardStatus) {

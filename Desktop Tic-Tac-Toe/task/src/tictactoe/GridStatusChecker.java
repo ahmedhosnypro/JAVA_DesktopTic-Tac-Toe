@@ -11,15 +11,16 @@ public class GridStatusChecker {
 
     BoardStatus checkGridStatus() {
         BoardStatus boardStatus = BoardStatus.NOT_STARTED;
-        int X = 0;
-        int O = 0;
+        int xCount = 0;
+        int oCount = 0;
         int empty = 0;
+
         for (char[] row : board.boardGrid.getGrid()) {
             for (char ch : row) {
                 if (ch == 'X') {
-                    X++;
+                    xCount++;
                 } else if (ch == 'O') {
-                    O++;
+                    oCount++;
                 } else if (ch == ' ') {
                     empty++;
                 }
@@ -37,9 +38,9 @@ public class GridStatusChecker {
                 if (empty == 0) {
                     boardStatus = BoardStatus.DRAW;
                 } else if (empty > 0) {
-                    if (X <= O && empty != 9) {
+                    if (xCount <= oCount && empty != 9) {
                         boardStatus = BoardStatus.X_TURN;
-                    } else if (O < X && empty != 9) {
+                    } else if (oCount < xCount && empty != 9) {
                         boardStatus = BoardStatus.O_TURN;
                     }
                 }
@@ -75,18 +76,18 @@ public class GridStatusChecker {
         String check = "";
         char[] sides;
         sides = simplifySides();
-        int X = 0;
-        int O = 0;
+        int xCount = 0;
+        int oCount = 0;
         for (char side : sides) {
             if (side == 'X') {
-                X++;
+                xCount++;
             } else if (side == 'O') {
-                O++;
+                oCount++;
             }
         }
-        if (X == 1 && O == 0) {
+        if (xCount == 1 && oCount == 0) {
             check = "X_WINS";
-        } else if (O == 1 && X == 0) {
+        } else if (oCount == 1 && xCount == 0) {
             check = "O_WINS";
         }
         return check;
