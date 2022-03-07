@@ -4,8 +4,6 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
-import static tictactoe.BoardStatus.X_TURN;
-
 public class StatusBar extends JPanel {
     TicTacToe ticTacToe;
     final JLabel labelStatus = new JLabel("Game is not started");
@@ -38,16 +36,19 @@ public class StatusBar extends JPanel {
             switch (ticTacToe.getBoard().getBoardStatus()) {
                 case NOT_STARTED:
                 case X_TURN:
+                    text = String.format("The turn of %s Player (%c)",
+                            ticTacToe.getCurrentPlayer().getName(),
+                            ticTacToe.getCurrentPlayer().getGameChar());
                 case O_TURN:
-                    text = String.format("The turn of %s Player(%c)",
+                    text = String.format("The turn of %s Player (%c)",
                             ticTacToe.getCurrentPlayer().getName(),
                             ticTacToe.getCurrentPlayer().getGameChar());
                     break;
                 case X_WINS:
-                    text = "X wins";
-                    break;
                 case O_WINS:
-                    text = "O wins";
+                    text = String.format("The %s Player (%c) wins",
+                            ticTacToe.getCurrentPlayer().getName(),
+                            ticTacToe.getCurrentPlayer().getGameChar());
                     break;
                 case DRAW:
                     text = "Draw";

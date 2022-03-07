@@ -12,7 +12,7 @@ public class TicTacToe extends JFrame {
     private final Board board = new Board("Board", this);
     private final StatusBar statusBar = new StatusBar("Status Bar", this);
 
-    private final Engine engine = new Engine(this);
+    private final transient Engine engine = new Engine(this);
     private final transient Player fstPlayer = new Player(this, "Human", Level.HUMAN, 'X');
     private final transient Player sndPlayer = new Player(this, "Human", Level.HUMAN, 'O');
     transient Player currentPlayer = fstPlayer;
@@ -46,6 +46,10 @@ public class TicTacToe extends JFrame {
             currentPlayer = sndPlayer;
         } else {
             currentPlayer = fstPlayer;
+        }
+        getStatusBar().updateLabelStatus();
+        if (currentPlayer.getLevel() != Level.HUMAN) {
+            currentPlayer.play();
         }
     }
 

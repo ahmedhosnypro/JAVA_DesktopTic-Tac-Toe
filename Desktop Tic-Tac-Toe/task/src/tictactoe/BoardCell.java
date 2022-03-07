@@ -3,7 +3,6 @@ package tictactoe;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ActionListener;
 
 public class BoardCell extends JButton {
     TicTacToe ticTacToe;

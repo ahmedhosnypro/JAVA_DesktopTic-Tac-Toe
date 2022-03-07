@@ -74,14 +74,23 @@ public class GameMenu extends JMenu {
     }
 
     void setPlayers(Level fstPlayerLevel, Level sndPlayerLevel) {
-        ticTacToe.getToolBar().buttonPlayer1.setText(fstPlayerLevel.getLevelName());
-        ticTacToe.getToolBar().buttonPlayer2.setText(sndPlayerLevel.getLevelName());
         ticTacToe.getFstPlayer().setLevel(fstPlayerLevel);
-        ticTacToe.getSndPlayer().setLevel(sndPlayerLevel);
         ticTacToe.getFstPlayer().setName(fstPlayerLevel.getLevelName());
+
+        ticTacToe.getSndPlayer().setLevel(sndPlayerLevel);
         ticTacToe.getSndPlayer().setName(sndPlayerLevel.getLevelName());
+
+        ticTacToe.setCurrentPlayer(ticTacToe.getFstPlayer());
+
+        ticTacToe.getToolBar().buttonPlayer1.setText(fstPlayerLevel.getLevelName());
+        ticTacToe.getToolBar().buttonPlayer1.setEnabled(false);
+
+        ticTacToe.getToolBar().buttonPlayer2.setText(sndPlayerLevel.getLevelName());
+        ticTacToe.getToolBar().buttonPlayer2.setEnabled(false);
+
         ticTacToe.getBoard().resetCells();
         ticTacToe.getToolBar().buttonStartReset.setText("Reset");
+        ticTacToe.getStatusBar().updateLabelStatus();
         ticTacToe.getEngine().start();
     }
 }

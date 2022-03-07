@@ -96,6 +96,8 @@
             <option value="$PROJECT_DIR$/Topics/Taking elements/Secret codes" />
             <option value="$PROJECT_DIR$/Topics/Taking elements/Sorting and skipping numbers" />
             <option value="$PROJECT_DIR$/Topics/Taking elements/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Timers/Creating a TimerTask" />
+            <option value="$PROJECT_DIR$/Topics/Timers/Theory" />
             <option value="$PROJECT_DIR$/util" />
           </set>
         </option>

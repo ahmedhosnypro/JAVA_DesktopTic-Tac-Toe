@@ -85,6 +85,8 @@
       <module name="Desktop_Tic-Tac-Toe.Topics-Taking_elements-Secret_codes.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Taking_elements-Sorting_and_skipping_numbers.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Taking_elements-Theory.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Timers-Creating_a_TimerTask.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Timers-Theory.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.util.main" target="11" />
     </bytecodeTargetLevel>
   </component>

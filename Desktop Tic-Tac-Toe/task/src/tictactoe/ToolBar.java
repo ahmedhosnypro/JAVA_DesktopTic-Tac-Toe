@@ -52,13 +52,16 @@ public class ToolBar extends JPanel {
         buttonStartReset.addActionListener(e -> {
             if (buttonStartReset.getText().equals(start)) {     //start
                 buttonStartReset.setText(reset);
+                ticTacToe.setCurrentPlayer(ticTacToe.getFstPlayer());
+                ticTacToe.getStatusBar().updateLabelStatus();
                 ticTacToe.getEngine().start();
             } else {        //Reset
                 buttonStartReset.setText(start);
                 ticTacToe.getBoard().resetCells();
                 ticTacToe.getEngine().stop();
+                ticTacToe.getStatusBar().updateLabelStatus();
             }
-            ticTacToe.getStatusBar().updateLabelStatus();
+
         });
 
         buttonPlayer1.addActionListener(e -> {

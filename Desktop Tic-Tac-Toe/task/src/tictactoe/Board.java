@@ -82,8 +82,6 @@ public class Board extends JPanel {
                     case X_TURN:
                     case O_TURN:
                         ticTacToe.switchPlayer();
-                        ticTacToe.getStatusBar().updateLabelStatus();
-                        ticTacToe.getCurrentPlayer().play();
                         break;
                     case X_WINS:
                     case O_WINS:
@@ -111,11 +109,12 @@ public class Board extends JPanel {
     }
 
     void enableAllCells() {
-        if (ticTacToe.getCurrentPlayer().getLevel() != Level.HUMAN) {
-            buttonList.forEach(b -> b.setEnabled(false));
-        } else {
+        //disabled for test
+//        if (ticTacToe.getCurrentPlayer().getLevel() != Level.HUMAN) {
+//            buttonList.forEach(b -> b.setEnabled(false));
+//        } else {
             buttonList.forEach(b -> b.setEnabled(true));
-        }
+//        }
     }
 
     void enableEmptyCells() {
@@ -135,7 +134,6 @@ public class Board extends JPanel {
         buttonList.forEach(b -> b.setEnabled(false));
     }
 
-
     void updateBoardStatus() {
         boardStatus = gridStatusChecker.checkGridStatus();
     }
@@ -150,10 +148,6 @@ public class Board extends JPanel {
 
     public BoardGrid getBoardGrid() {
         return boardGrid;
-    }
-
-    public GridStatusChecker getGridStatusChecker() {
-        return gridStatusChecker;
     }
 
     public Set<BoardCell> getButtonList() {
