@@ -1,32 +1,21 @@
 package tictactoe;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class GridStatusChecker {
     final Board board;
+    int xCount = 0;
+    int oCount = 0;
+    int empty = 0;
+
+    BoardStatus boardStatus = BoardStatus.NOT_STARTED;
 
     public GridStatusChecker(Board board) {
         this.board = board;
     }
 
     BoardStatus checkGridStatus() {
-        BoardStatus boardStatus = BoardStatus.NOT_STARTED;
-        int xCount = 0;
-        int oCount = 0;
-        int empty = 0;
-
-        for (char[] row : board.boardGrid.getGrid()) {
-            for (char ch : row) {
-                if (ch == 'X') {
-                    xCount++;
-                } else if (ch == 'O') {
-                    oCount++;
-                } else if (ch == ' ') {
-                    empty++;
-                }
-            }
-        }
-
+        getGridStatistics();
         switch (checkSides()) {
             case "X_WINS":
                 boardStatus = BoardStatus.X_WINS;
@@ -50,23 +39,22 @@ public class GridStatusChecker {
     }
 
     //return simple array representing fulfilled side with special case (X, O)
-    char[] simplifySides() {
-        char[][] side = board.boardGrid.getSides();
-        char[] simplifiedSides = new char[board.boardGrid.getSides().length];
-        Arrays.fill(simplifiedSides, 'f');
-        for (int i = 0; i < side.length; i++) {
-            char last = side[i][0];
+    ArrayList<Character> simplifySides() {
+        var side = board.boardGrid.getSides();
+        ArrayList<Character> simplifiedSides = new ArrayList<>();
+        for (var characters : side) {
+            char last = characters.get(0);
             boolean isInRow = true;
             for (int j = 1; j < 3; j++) {
-                if (side[i][j] == last) {
-                    last = side[i][j];
+                if (characters.get(j) == last) {
+                    last = characters.get(j);
                 } else {
                     isInRow = false;
                     break;
                 }
             }
             if (isInRow) {
-                simplifiedSides[i] = side[i][0];
+                simplifiedSides.add(characters.get(0));
             }
         }
         return simplifiedSides;
@@ -74,22 +62,37 @@ public class GridStatusChecker {
 
     String checkSides() {
         String check = "";
-        char[] sides;
-        sides = simplifySides();
-        int xCount = 0;
-        int oCount = 0;
-        for (char side : sides) {
+        int xRowCount = 0;
+        int oRowCount = 0;
+        for (char side : simplifySides()) {
             if (side == 'X') {
-                xCount++;
+                xRowCount++;
             } else if (side == 'O') {
-                oCount++;
+                oRowCount++;
             }
         }
-        if (xCount == 1 && oCount == 0) {
+        if (xRowCount == 1 && oRowCount == 0) {
             check = "X_WINS";
-        } else if (oCount == 1 && xCount == 0) {
+        } else if (oRowCount == 1 && xRowCount == 0) {
             check = "O_WINS";
         }
         return check;
+    }
+
+    private void getGridStatistics() {
+        xCount = 0;
+        oCount = 0;
+        empty = 0;
+        for (var row : board.boardGrid.getGrid()) {
+            for (char ch : row) {
+                if (ch == 'X') {
+                    xCount++;
+                } else if (ch == 'O') {
+                    oCount++;
+                } else if (ch == ' ') {
+                    empty++;
+                }
+            }
+        }
     }
 }

@@ -1,5 +1,10 @@
 type: choice
 is_multiple_choice: false
+options:
+- text: ls.stream()
+- text: ls.listStream()
+- text: ls.elements()
+- text: ls.sequence()
 files:
 - name: src/Task.java
   visible: true

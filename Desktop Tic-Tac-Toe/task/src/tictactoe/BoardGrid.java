@@ -1,22 +1,22 @@
 package tictactoe;
 
-
-import java.util.Collections;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BoardGrid {
-
-    private final char[][] grid = new char[3][3];
-    char[] diagonal1 = new char[3];
-    char[] diagonal2 = new char[3];
-    private final char[][] rotatedGrid = new char[3][3];
-    private char[][] sides;
+    private final List<List<Character>> grid = new ArrayList<>();
+    private final List<Character> mainDiagonal = new ArrayList<>();
+    private final List<Character> sideDiagonal = new ArrayList<>();
+    private final List<List<Character>> rotatedGrid = new ArrayList<>();
+    private List<List<Character>> sides = new ArrayList<>();
 
 
     BoardGrid() {
-
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                grid[i][j] = ' ';
+        for (int row = 0; row < 3; row++) {
+            grid.add(new ArrayList<>());
+            rotatedGrid.add(new ArrayList<>());
+            for (int column = 0; column < 3; column++) {
+                grid.get(row).add(' ');
             }
         }
         setRotatedGrid();
@@ -25,44 +25,48 @@ public class BoardGrid {
         setSides();
     }
 
-    public void setGrid(int row, int column, char gameChar) {
-        grid[row][column] = gameChar;
+    public void setGrid(char gameChar, int row, int column) {
+        grid.get(row).set(column, gameChar);
         setRotatedGrid();
         setDiagonal1();
         setDiagonal2();
         setSides();
     }
 
-    public char[][] getGrid() {
-        return grid;
-    }
-
     void setRotatedGrid() {
-        for (int i = 0; i < 3; i++) {
-            for (int k = 0; k < 3; k++) {
-                rotatedGrid[i][k] = grid[k][i];
+        for (int row = 0; row < 3; row++) {
+            rotatedGrid.get(row).clear();
+            for (int column = 0; column < 3; column++) {
+                rotatedGrid.get(row).add(column, grid.get(column).get(row));
             }
         }
     }
 
     void setDiagonal1() {
-        for (int i = 0; i < 3; i++) {
-            diagonal1[i] = grid[i][i];
+        mainDiagonal.clear();
+        for (int row = 0; row < 3; row++) {
+            mainDiagonal.add(row, grid.get(row).get(row));
         }
     }
 
     void setDiagonal2() {
-        diagonal2[0] = grid[0][2];
-        diagonal2[1] = grid[1][1];
-        diagonal2[2] = grid[2][0];
+        sideDiagonal.clear();
+        sideDiagonal.add(0, grid.get(0).get(2));
+        sideDiagonal.add(1, grid.get(1).get(1));
+        sideDiagonal.add(2, grid.get(2).get(0));
     }
 
     public void setSides() {
-        sides = new char[][]{grid[0], grid[1], grid[2], rotatedGrid[0], rotatedGrid[1], rotatedGrid[2],
-                diagonal1, diagonal2};
+        sides = List.of(mainDiagonal, sideDiagonal, grid.get(0),
+                grid.get(1), grid.get(2), rotatedGrid.get(0),
+                rotatedGrid.get(1), rotatedGrid.get(2));
     }
 
-    public char[][] getSides() {
+    public List<List<Character>> getGrid() {
+        return grid;
+    }
+
+    public List<List<Character>> getSides() {
         return sides;
     }
 }

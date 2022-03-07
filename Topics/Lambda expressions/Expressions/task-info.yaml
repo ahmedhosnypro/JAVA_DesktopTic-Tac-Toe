@@ -1,5 +1,13 @@
 type: choice
-is_multiple_choice: false
+is_multiple_choice: true
+options:
+- text: (x, y) -&gt; x + y
+- text: x := x
+- text: (z) -&gt; z
+- text: (x, y) =&gt; x + y
+- text: x, y -&gt; x + y
+- text: x -&gt; x
+- text: x =&gt; x
 files:
 - name: src/Task.java
   visible: true

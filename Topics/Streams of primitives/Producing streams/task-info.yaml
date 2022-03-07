@@ -1,5 +1,10 @@
 type: choice
-is_multiple_choice: false
+is_multiple_choice: true
+options:
+- text: Stream.of(1, 2, 3).mapToLong(n -&gt; n);
+- text: Stream.generate(Math::random);
+- text: Stream.of(1, 2, 3);
+- text: IntStream.of(1, 2, 3);
 files:
 - name: src/Task.java
   visible: true

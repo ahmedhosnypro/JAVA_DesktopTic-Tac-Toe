@@ -430,6 +430,519 @@ files:
         }
     }
   learner_created: false
+- name: src/tictactoe/Level.java
+  visible: true
+  text: |
+    package tictactoe;
+
+    public enum Level {
+        HUMAN,
+        EASY,
+        MEDIUM,
+        HARD
+    }
+  learner_created: true
+- name: src/tictactoe/Board.java
+  visible: true
+  text: |-
+    package tictactoe;
+
+    import javax.swing.*;
+    import javax.swing.border.Border;
+    import java.awt.*;
+    import java.util.LinkedHashSet;
+
+    public class Board extends JPanel {
+        TicTacToe ticTacToe;
+        final transient Border border = BorderFactory.createLineBorder(Color.BLACK);
+
+        BoardStatus boardStatus = BoardStatus.NOT_STARTED;
+
+        //buttons
+        final LinkedHashSet<JButton> buttonList = new LinkedHashSet<>(); //list of buttons
+        final JButton buttonA1 = new BoardCell("ButtonA1", this);
+        final JButton buttonA2 = new BoardCell("ButtonA2", this);
+        final JButton buttonA3 = new BoardCell("ButtonA3", this);
+        final JButton buttonB1 = new BoardCell("ButtonB1", this);
+        final JButton buttonB2 = new BoardCell("ButtonB2", this);
+        final JButton buttonB3 = new BoardCell("ButtonB3", this);
+        final JButton buttonC1 = new BoardCell("ButtonC1", this);
+        final JButton buttonC2 = new BoardCell("ButtonC2", this);
+        final JButton buttonC3 = new BoardCell("ButtonC3", this);
+
+
+        transient BoardGrid boardGrid = new BoardGrid();
+        final transient GridStatusChecker gridStatusChecker = new GridStatusChecker(this);
+
+        public Board(String name, TicTacToe ticTacToe) {
+            this.ticTacToe = ticTacToe;
+            setName(name);
+            setLayout(new GridLayout(3, 3));
+            setBorder(border);
+
+            //add buttons to buttonList
+            buttonList.add(buttonA3);
+            buttonList.add(buttonB3);
+            buttonList.add(buttonC3);
+            buttonList.add(buttonA2);
+            buttonList.add(buttonB2);
+            buttonList.add(buttonC2);
+            buttonList.add(buttonA1);
+            buttonList.add(buttonB1);
+            buttonList.add(buttonC1);
+
+            addButtons();
+        }
+
+        private void addButtons() {
+            for (var button : buttonList) {
+                add(button);
+            }
+
+            int row = 0;
+            int column = 0;
+            for (var button : buttonList) {
+                int finalRow = row;
+                int finalColumn = column;
+                button.addActionListener(e -> {
+                    if (button.getText().equals(" ")) {
+                        char gameChar = ' ';
+                        BoardStatus status = getBoardStatus();
+                        switch (status) {
+                            case X_TURN:
+                            case NOT_STARTED:
+                                gameChar = 'X';
+                                break;
+                            case O_TURN:
+                                gameChar = 'O';
+                                break;
+                            default:
+                                break;
+                        }
+                        boardGrid.setGrid(finalRow, finalColumn, gameChar);
+                        ticTacToe.statusBar.updateLabelStatus();
+                        button.setText(String.valueOf(gameChar));
+                    }
+                });
+                if (column == 2) {
+                    column = 0;
+                    row++;
+                } else {
+                    column++;
+                }
+            }
+        }
+
+        public void resetCells() {
+            buttonList.forEach(b -> b.setText(" "));
+            boardGrid = new BoardGrid();
+            setBoardStatus(BoardStatus.NOT_STARTED);
+        }
+
+        public BoardStatus getBoardStatus() {
+            return gridStatusChecker.checkGridStatus();
+        }
+
+        public void setBoardStatus(BoardStatus boardStatus) {
+            this.boardStatus = boardStatus;
+        }
+
+        void enableCells() {
+            buttonList.forEach(b -> b.setEnabled(true));
+        }
+
+        void disableCells() {
+            buttonList.forEach(b -> b.setEnabled(false));
+        }
+    }
+  learner_created: true
+- name: src/tictactoe/BoardCell.java
+  visible: true
+  text: |-
+    package tictactoe;
+
+    import javax.swing.*;
+    import javax.swing.border.Border;
+    import java.awt.*;
+
+    public class BoardCell extends JButton {
+        Board board;
+        final transient Border whiteLine = BorderFactory.createLineBorder(Color.DARK_GRAY);
+
+
+        public BoardCell(String name, Board board) {
+            super(" ");
+            this.board = board;
+            setName(name);
+            setBackground(Color.BLACK);
+            setForeground(Color.LIGHT_GRAY);
+            setFont(new Font("", Font.BOLD, 100));
+            setFocusPainted(false);
+            setEnabled(false);
+            setBorder(whiteLine);
+        }
+    }
+  learner_created: true
+- name: src/tictactoe/Player.java
+  visible: true
+  text: "package tictactoe;\n\npublic class Player {\n    TicTacToe ticTacToe;\n \
+    \   Level level;\n    \n    public Player(TicTacToe ticTacToe, Level level) {\n\
+    \        this.ticTacToe = ticTacToe;\n        this.level = level;\n    }\n\n \
+    \   public void setLevel(Level level) {\n        this.level = level;\n    }\n\n\
+    \    public Level getLevel() {\n        return level;\n    }\n}\n"
+  learner_created: true
+- name: src/tictactoe/BoardGrid.java
+  visible: true
+  text: |-
+    package tictactoe;
+
+
+    import java.util.Collections;
+
+    public class BoardGrid {
+
+        private final char[][] grid = new char[3][3];
+        char[] diagonal1 = new char[3];
+        char[] diagonal2 = new char[3];
+        private final char[][] rotatedGrid = new char[3][3];
+        private char[][] sides;
+
+
+        BoardGrid() {
+
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    grid[i][j] = ' ';
+                }
+            }
+            setRotatedGrid();
+            setDiagonal1();
+            setDiagonal2();
+            setSides();
+        }
+
+        public void setGrid(int row, int column, char gameChar) {
+            grid[row][column] = gameChar;
+            setRotatedGrid();
+            setDiagonal1();
+            setDiagonal2();
+            setSides();
+        }
+
+        public char[][] getGrid() {
+            return grid;
+        }
+
+        void setRotatedGrid() {
+            for (int i = 0; i < 3; i++) {
+                for (int k = 0; k < 3; k++) {
+                    rotatedGrid[i][k] = grid[k][i];
+                }
+            }
+        }
+
+        void setDiagonal1() {
+            for (int i = 0; i < 3; i++) {
+                diagonal1[i] = grid[i][i];
+            }
+        }
+
+        void setDiagonal2() {
+            diagonal2[0] = grid[0][2];
+            diagonal2[1] = grid[1][1];
+            diagonal2[2] = grid[2][0];
+        }
+
+        public void setSides() {
+            sides = new char[][]{grid[0], grid[1], grid[2], rotatedGrid[0], rotatedGrid[1], rotatedGrid[2],
+                    diagonal1, diagonal2};
+        }
+
+        public char[][] getSides() {
+            return sides;
+        }
+    }
+  learner_created: true
+- name: src/tictactoe/BoardStatus.java
+  visible: true
+  text: |
+    package tictactoe;
+
+    public enum BoardStatus {
+        NOT_STARTED,
+        X_TURN,
+        O_TURN,
+        X_WINS,
+        O_WINS,
+        DRAW
+    }
+  learner_created: true
+- name: src/tictactoe/GridStatusChecker.java
+  visible: true
+  text: |-
+    package tictactoe;
+
+    import java.util.Arrays;
+
+    public class GridStatusChecker {
+        final Board board;
+
+        public GridStatusChecker(Board board) {
+            this.board = board;
+        }
+
+        BoardStatus checkGridStatus() {
+            BoardStatus boardStatus = BoardStatus.NOT_STARTED;
+            int xCount = 0;
+            int oCount = 0;
+            int empty = 0;
+
+            for (char[] row : board.boardGrid.getGrid()) {
+                for (char ch : row) {
+                    if (ch == 'X') {
+                        xCount++;
+                    } else if (ch == 'O') {
+                        oCount++;
+                    } else if (ch == ' ') {
+                        empty++;
+                    }
+                }
+            }
+
+            switch (checkSides()) {
+                case "X_WINS":
+                    boardStatus = BoardStatus.X_WINS;
+                    break;
+                case "O_WINS":
+                    boardStatus = BoardStatus.O_WINS;
+                    break;
+                default:
+                    if (empty == 0) {
+                        boardStatus = BoardStatus.DRAW;
+                    } else if (empty > 0) {
+                        if (xCount <= oCount && empty != 9) {
+                            boardStatus = BoardStatus.X_TURN;
+                        } else if (oCount < xCount && empty != 9) {
+                            boardStatus = BoardStatus.O_TURN;
+                        }
+                    }
+                    break;
+            }
+            return boardStatus;
+        }
+
+        //return simple array representing fulfilled side with special case (X, O)
+        char[] simplifySides() {
+            char[][] side = board.boardGrid.getSides();
+            char[] simplifiedSides = new char[board.boardGrid.getSides().length];
+            Arrays.fill(simplifiedSides, 'f');
+            for (int i = 0; i < side.length; i++) {
+                char last = side[i][0];
+                boolean isInRow = true;
+                for (int j = 1; j < 3; j++) {
+                    if (side[i][j] == last) {
+                        last = side[i][j];
+                    } else {
+                        isInRow = false;
+                        break;
+                    }
+                }
+                if (isInRow) {
+                    simplifiedSides[i] = side[i][0];
+                }
+            }
+            return simplifiedSides;
+        }
+
+        String checkSides() {
+            String check = "";
+            char[] sides;
+            sides = simplifySides();
+            int xCount = 0;
+            int oCount = 0;
+            for (char side : sides) {
+                if (side == 'X') {
+                    xCount++;
+                } else if (side == 'O') {
+                    oCount++;
+                }
+            }
+            if (xCount == 1 && oCount == 0) {
+                check = "X_WINS";
+            } else if (oCount == 1 && xCount == 0) {
+                check = "O_WINS";
+            }
+            return check;
+        }
+    }
+  learner_created: true
+- name: src/tictactoe/StatusBar.java
+  visible: true
+  text: |-
+    package tictactoe;
+
+    import javax.swing.*;
+    import javax.swing.border.Border;
+    import java.awt.*;
+
+    public class StatusBar extends JPanel {
+        TicTacToe ticTacToe;
+        final JLabel labelStatus = new JLabel("Game is not started");
+
+        final transient Border border = BorderFactory.createLineBorder(Color.BLACK);
+
+        public StatusBar(String name, TicTacToe ticTacToe) {
+            setName(name);
+            setBackground(Color.BLACK);
+
+            this.ticTacToe = ticTacToe;
+            setBorder(border);
+            setFields();
+
+            add(labelStatus);
+        }
+
+        private void setFields() {
+            labelStatus.setName("LabelStatus");
+            labelStatus.setBackground(Color.BLACK);
+            labelStatus.setForeground(Color.LIGHT_GRAY);
+            labelStatus.setFont(new Font("", Font.BOLD, 15));
+        }
+
+        void updateLabelStatus() {
+            String text = "";
+            if (ticTacToe.toolBar.buttonStartReset.getText().equals("Start")) {
+                text = "Game is not started";
+            } else if (ticTacToe.toolBar.buttonStartReset.getText().equals("Reset")) {
+                switch (ticTacToe.board.getBoardStatus()) {
+                    case X_WINS:
+                        text = "X wins";
+                        break;
+                    case O_WINS:
+                        text = "O wins";
+                        break;
+                    case DRAW:
+                        text = "Draw";
+                        break;
+                    default:
+                        text = "Game in progress";
+                        break;
+                }
+            }
+            labelStatus.setText(text);
+        }
+    }
+  learner_created: true
+- name: src/tictactoe/ToolBar.java
+  visible: true
+  text: |
+    package tictactoe;
+
+    import javax.swing.*;
+    import javax.swing.border.Border;
+    import java.awt.*;
+    import java.awt.event.ActionListener;
+
+    public class ToolBar extends JPanel {
+        TicTacToe ticTacToe;
+        final transient Border border = BorderFactory.createLineBorder(Color.BLACK);
+
+        static final String robot = "Robot";
+        static final String human = "Human";
+        static final String start = "Start";
+        static final String reset = "Reset";
+
+        final Dimension buttonDimension = new Dimension(133, 50);
+        final JButton buttonStartReset = new JButton(start);
+        final JButton buttonPlayer1 = new JButton(human);
+        final JButton buttonPlayer2 = new JButton(human);
+
+
+        final transient ActionListener buttonResetActionListener = e -> {
+            if (buttonStartReset.getText().equals(start)) {
+                buttonStartReset.setText(reset);
+                ticTacToe.board.enableCells();
+                buttonPlayer1.setEnabled(false);
+                buttonPlayer2.setEnabled(false);
+            } else {
+                buttonStartReset.setText(start);
+                ticTacToe.board.resetCells();
+                ticTacToe.board.disableCells();
+                buttonPlayer1.setEnabled(true);
+                buttonPlayer2.setEnabled(true);
+            }
+            ticTacToe.statusBar.updateLabelStatus();
+        };
+
+        final transient ActionListener buttonPlayer1ActionListener = e -> {
+            if (buttonPlayer1.getText().equals(human)) {
+                buttonPlayer1.setText(robot);
+                ticTacToe.player1.setLevel(Level.HARD);
+            } else if (buttonPlayer1.getText().equals(robot)) {
+                buttonPlayer1.setText(human);
+                ticTacToe.player1.setLevel(Level.HUMAN);
+            }
+        };
+
+        final transient ActionListener buttonPlayer2ActionListener = e -> {
+            if (buttonPlayer2.getText().equals(human)) {
+                buttonPlayer2.setText(robot);
+                ticTacToe.player2.setLevel(Level.HARD);
+            } else if (buttonPlayer2.getText().equals(robot)) {
+                buttonPlayer2.setText(human);
+                ticTacToe.player2.setLevel(Level.HUMAN);
+            }
+        };
+
+
+        public ToolBar(String name, TicTacToe ticTacToe) {
+            setName(name);
+            setLayout(new GridLayout(1, 3));
+            setBackground(Color.BLACK);
+            setBorder(border);
+
+            this.ticTacToe = ticTacToe;
+            setButton(buttonStartReset, "ButtonStartReset");
+            setButton(buttonPlayer1, "ButtonPlayer1");
+            setButton(buttonPlayer2, "ButtonPlayer2");
+
+            add(buttonPlayer1);
+            add(buttonStartReset);
+            add(buttonPlayer2);
+
+            buttonStartReset.addActionListener(buttonResetActionListener);
+            buttonPlayer1.addActionListener(buttonPlayer1ActionListener);
+            buttonPlayer2.addActionListener(buttonPlayer2ActionListener);
+        }
+
+        private void setButton(JButton button, String name) {
+            button.setName(name);
+            button.setBackground(Color.BLACK);
+            button.setForeground(Color.LIGHT_GRAY);
+            button.setFocusPainted(false);
+            button.setBorder(border);
+            button.setFont(new Font("", Font.BOLD, 15));
+            button.setMaximumSize(buttonDimension);
+            button.setMinimumSize(buttonDimension);
+            button.setPreferredSize(buttonDimension);
+        }
+    }
+  learner_created: true
+- name: src/tictactoe/GameMenu.java
+  visible: true
+  learner_created: true
+- name: src/tictactoe/RobotEmulator.java
+  visible: true
+  learner_created: true
+- name: src/tictactoe/Engine.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/12897#comment
-status: Unchecked
+status: Failed
+feedback:
+  message: |-
+    Wrong answer in test #12
+
+    Once the game is started, the status should indicate the first player turn
+  time: Sun, 06 Mar 2022 15:33:00 UTC
 record: -1

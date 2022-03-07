@@ -1,5 +1,12 @@
 type: choice
-is_multiple_choice: false
+is_multiple_choice: true
+options:
+- text: filter
+- text: distinct
+- text: map
+- text: toArray
+- text: forEach
+- text: count
 files:
 - name: src/Task.java
   visible: true

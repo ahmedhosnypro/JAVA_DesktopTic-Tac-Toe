@@ -1,5 +1,11 @@
 type: choice
 is_multiple_choice: false
+options:
+- text: It will return a <b>String</b>
+- text: It will return <b>Void</b>
+- text: An exception occurs after executing this line
+- text: It does not compile
+- text: It will return an <b>Object</b>
 files:
 - name: src/Task.java
   visible: true
