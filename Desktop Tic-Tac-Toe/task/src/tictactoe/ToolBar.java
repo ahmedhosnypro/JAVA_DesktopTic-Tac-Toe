@@ -1,12 +1,10 @@
 package tictactoe;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 public class ToolBar extends JPanel {
     TicTacToe ticTacToe;
-    final transient Border border = BorderFactory.createLineBorder(Color.BLACK);
 
     static final String robot = "Robot";
     static final String human = "Human";
@@ -21,8 +19,6 @@ public class ToolBar extends JPanel {
     public ToolBar(String name, TicTacToe ticTacToe) {
         setName(name);
         setLayout(new GridLayout(1, 3));
-        setBackground(Color.BLACK);
-        setBorder(border);
 
         this.ticTacToe = ticTacToe;
         setButton(buttonStartReset, "ButtonStartReset");
@@ -38,10 +34,7 @@ public class ToolBar extends JPanel {
 
     private void setButton(JButton button, String name) {
         button.setName(name);
-        button.setBackground(Color.BLACK);
-        button.setForeground(Color.LIGHT_GRAY);
         button.setFocusPainted(false);
-        button.setBorder(border);
         button.setFont(new Font("", Font.BOLD, 15));
         button.setMaximumSize(buttonDimension);
         button.setMinimumSize(buttonDimension);

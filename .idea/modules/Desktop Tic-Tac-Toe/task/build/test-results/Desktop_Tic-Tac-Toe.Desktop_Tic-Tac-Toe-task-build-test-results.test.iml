@@ -12,6 +12,7 @@
     <orderEntry type="module" module-name="Desktop_Tic-Tac-Toe.Desktop_Tic-Tac-Toe-task-build-test-results.main" />
     <orderEntry type="module" module-name="Desktop_Tic-Tac-Toe.util.main" />
     <orderEntry type="module" module-name="Desktop_Tic-Tac-Toe.util.test" production-on-test="" />
+    <orderEntry type="library" name="Gradle: com.formdev:flatlaf:2.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.github.hyperskill:hs-test:release-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Gradle: org.assertj:assertj-swing-junit:3.9.2" level="project" />
     <orderEntry type="library" name="Gradle: junit:junit:4.12" level="project" />

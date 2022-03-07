@@ -1,7 +1,6 @@
 package tictactoe;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -9,7 +8,6 @@ import java.util.Set;
 public class GameMenu extends JMenu {
     TicTacToe ticTacToe;
 
-    final transient Border border = BorderFactory.createLineBorder(Color.BLACK);
     private final transient Font myFont = new Font("", Font.BOLD, 15);
 
     final transient Set<JMenuItem> menuItems = new LinkedHashSet<>();
@@ -24,9 +22,6 @@ public class GameMenu extends JMenu {
         this.ticTacToe = ticTacToe;
         setName(name);
         setText(text);
-        setBorder(border);
-        setBackground(Color.BLACK);
-        setForeground(Color.WHITE);
 
         addMenuItems();
         setMenuItems();
@@ -59,9 +54,6 @@ public class GameMenu extends JMenu {
     }
 
     void setMenuItems() {
-        menuItems.forEach(menuItem -> menuItem.setBackground(Color.BLACK));
-        menuItems.forEach(menuItem -> menuItem.setForeground(Color.WHITE));
-        menuItems.forEach(menuItem -> menuItem.setBorder(border));
         menuItems.forEach(menuItem -> menuItem.setFont(myFont));
     }
 

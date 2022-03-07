@@ -13,8 +13,6 @@ public class BoardCell extends JButton {
         super(" ");
         this.ticTacToe = ticTacToe;
         setName(name);
-        setBackground(Color.BLACK);
-        setForeground(Color.LIGHT_GRAY);
         setFont(new Font("", Font.BOLD, 100));
         setFocusPainted(false);
         setEnabled(false);

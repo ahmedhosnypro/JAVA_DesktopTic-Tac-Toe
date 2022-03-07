@@ -51,22 +51,12 @@ a
 1Topics/Comparator/Comparing values/task-info.yaml,4\7\47d46d8e126e537c0cecb4956cdd5508640bd457
 k
 ;Topics/Lambda expressions/Max of two integers/src/Main.java,2\8\28ef4fe206eb7554519ba324b94e56936e75dadf
-e
-5Desktop Tic-Tac-Toe/task/src/tictactoe/BoardGrid.java,a\6\a6143acaed638e8095ddb745eb175141adda0ba2
 m
 =Desktop Tic-Tac-Toe/task/src/tictactoe/GridStatusChecker.java,5\4\54be26e61b27832a9b13f518ed7d15266eb6ab75
- 
-p.idea/modules/Topics/Timers/Creating a TimerTask/Desktop_Tic-Tac-Toe.Topics-Timers-Creating_a_TimerTask.main.iml,5\4\546d64f80014200942d259a23cd8666439eca890
-„
-T.idea/modules/Topics/Timers/Theory/Desktop_Tic-Tac-Toe.Topics-Timers-Theory.test.iml,a\8\a89b9c4bfe8a043bd0e8ae108ea6c4074f3cef59
 
 O.idea/modules/Topics/Timers/Theory/Desktop_Tic-Tac-Toe.Topics-Timers-Theory.iml,d\b\dbf7a9c1ff99ae9ab3f293a2d932a11b54ee99fe
- 
-p.idea/modules/Topics/Timers/Creating a TimerTask/Desktop_Tic-Tac-Toe.Topics-Timers-Creating_a_TimerTask.test.iml,2\4\24f5dc6222455311edb444efb405d28041d5c8c5
 ›
 k.idea/modules/Topics/Timers/Creating a TimerTask/Desktop_Tic-Tac-Toe.Topics-Timers-Creating_a_TimerTask.iml,f\5\f5936598dd1ac1cc5b86759b9e447fc322042afa
-„
-T.idea/modules/Topics/Timers/Theory/Desktop_Tic-Tac-Toe.Topics-Timers-Theory.main.iml,6\3\63c93e88dea595bf32345c76e065d30ca23f9355
 a
 1Topics/Timers/Creating scheduled tasks/answer.txt,4\a\4ad9b2c975e925c240370fa6956507c96540e5a1
 h
@@ -83,10 +73,6 @@ e
 5Topics/Timers/Creating scheduled tasks/task-info.yaml,f\7\f7d7c159542557e4a5167f3e82ec116beb954433
 S
 #Topics/Timers/Theory/task-info.yaml,6\d\6d4cc257207441d6e1982f6479bd18d38d0f45ee
-a
-1Desktop Tic-Tac-Toe/task/src/tictactoe/Board.java,8\3\83bf0ed42a846dc0d183078f73da1b868447b490
-e
-5Desktop Tic-Tac-Toe/task/src/tictactoe/BoardCell.java,1\f\1fb5a40392894fa93576b2e15bd94c9e53c868d3
 b
 2Desktop Tic-Tac-Toe/task/src/tictactoe/Engine.java,e\3\e34b430f79cb6ab74654e0b916d0431ee9a649bf
 `
@@ -99,5 +85,3 @@ N
 Topics/Timers/Theory/task.html,e\1\e15bcd0f44b163da0264678be9bef83801edbb4f
 R
 "Topics/Timers/Theory/src/Task.java,c\b\cb56682337881e408a90f6d65c38891c7b0c1dd0
-c
-3Desktop Tic-Tac-Toe/task/src/tictactoe/ToolBar.java,9\8\9818bfc4fdb18e30b1968817e9b484b8f3b0e678

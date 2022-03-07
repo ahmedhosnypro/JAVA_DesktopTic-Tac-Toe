@@ -1,14 +1,12 @@
 package tictactoe;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Board extends JPanel {
     TicTacToe ticTacToe;
-    final transient Border border = BorderFactory.createLineBorder(Color.BLACK);
 
     BoardStatus boardStatus = BoardStatus.NOT_STARTED;
 
@@ -31,7 +29,6 @@ public class Board extends JPanel {
     public Board(String name, TicTacToe ticTacToe) {
         setName(name);
         setLayout(new GridLayout(3, 3));
-        setBorder(border);
 
         this.ticTacToe = ticTacToe;
 
@@ -109,12 +106,11 @@ public class Board extends JPanel {
     }
 
     void enableAllCells() {
-        //disabled for test
-//        if (ticTacToe.getCurrentPlayer().getLevel() != Level.HUMAN) {
-//            buttonList.forEach(b -> b.setEnabled(false));
-//        } else {
+        if (ticTacToe.getCurrentPlayer().getLevel() != Level.HUMAN) {
+            buttonList.forEach(b -> b.setEnabled(false));
+        } else {
             buttonList.forEach(b -> b.setEnabled(true));
-//        }
+        }
     }
 
     void enableEmptyCells() {

@@ -1,21 +1,17 @@
 package tictactoe;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 public class StatusBar extends JPanel {
     TicTacToe ticTacToe;
     final JLabel labelStatus = new JLabel("Game is not started");
 
-    final transient Border border = BorderFactory.createLineBorder(Color.BLACK);
-
     public StatusBar(String name, TicTacToe ticTacToe) {
         setName(name);
         setBackground(Color.ORANGE);
 
         this.ticTacToe = ticTacToe;
-        setBorder(border);
         setFields();
 
         add(labelStatus);

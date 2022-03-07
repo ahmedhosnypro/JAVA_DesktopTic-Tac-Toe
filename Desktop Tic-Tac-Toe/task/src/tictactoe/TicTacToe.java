@@ -1,11 +1,9 @@
 package tictactoe;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 public class TicTacToe extends JFrame {
-    final transient Border border = BorderFactory.createLineBorder(Color.BLACK);
     final Dimension dimension = new Dimension(450, 450);
 
     private final ToolBar toolBar = new ToolBar("Tool Bar", this);
@@ -17,6 +15,7 @@ public class TicTacToe extends JFrame {
     private final transient Player sndPlayer = new Player(this, "Human", Level.HUMAN, 'O');
     transient Player currentPlayer = fstPlayer;
 
+    final ImageIcon icon = new ImageIcon("Desktop Tic-Tac-Toe/task/src/tictactoe/TicTacToe.png");
 
     public TicTacToe() {
         setTitle("Tic Tac Toe");
@@ -25,13 +24,14 @@ public class TicTacToe extends JFrame {
         setLocationRelativeTo(null);
         setMinimumSize(dimension);
         setPreferredSize(dimension);
-        setBackground(Color.BLACK);
         setLayout(new BorderLayout());
+        setIconImage(icon.getImage());
+
+        getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(23, 180, 252));
+        getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.white);
 
         JMenuBar menuBar = new JMenuBar();
-        menuBar.setBorder(border);
         setJMenuBar(menuBar);
-        menuBar.setBackground(Color.BLACK);
         GameMenu gameMenu = new GameMenu("MenuGame", "Game", this);
         menuBar.add(gameMenu);
 

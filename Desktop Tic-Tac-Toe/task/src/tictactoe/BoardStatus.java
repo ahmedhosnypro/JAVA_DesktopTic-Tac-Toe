@@ -3,7 +3,7 @@ package tictactoe;
 import java.awt.*;
 
 public enum BoardStatus {
-    NOT_STARTED(Color.RED, Color.BLACK),
+    NOT_STARTED(Color.MAGENTA, Color.BLACK),
     X_TURN(Color.MAGENTA, Color.BLACK),
     O_TURN(Color.CYAN, Color.BLACK),
     X_WINS(Color.ORANGE, Color.RED),
