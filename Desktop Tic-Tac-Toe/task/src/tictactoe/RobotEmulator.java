@@ -168,22 +168,6 @@ public class RobotEmulator {
         return cord;
     }
 
-    private int[] getSideStatistics(List<Character> side) {
-        int yEmptyCell = 0;     //Y coordinate for empty cell in the row
-        int xCnt = 0;       //counting how many X for each side
-        int oCnt = 0;       //counting how many O for each side
-        for (int elem = 0; elem < 3; elem++) {
-            if (side.get(elem) == 'X') {
-                xCnt++;
-            } else if (side.get(elem) == 'O') {
-                oCnt++;
-            } else if (side.get(elem) == ' ') {
-                yEmptyCell = elem;
-            }
-        }
-        return new int[]{xCnt, oCnt, yEmptyCell};
-    }
-
     boolean checkMove(BoardGrid grid, int row, int column) {
         return grid.getGrid().get(row).get(column) == ' ';
     }
@@ -193,7 +177,7 @@ public class RobotEmulator {
         for (var side : sides) {
             int xCnt = 0;       //counting how many X for each side
             int oCnt = 0;       //counting how many O for each side
-            var sideStatistics = getSideStatistics(side);
+            var sideStatistics = getSemiFullSideStatistics(side);
             xCnt += sideStatistics[0];
             oCnt += sideStatistics[1];
             int yEmptyCell = sideStatistics[2];
@@ -213,7 +197,7 @@ public class RobotEmulator {
         for (var side : sides) {
             int xCnt = 0;       //counting how many X for each side
             int oCnt = 0;       //counting how many O for each side
-            var sideStatistics = getSideStatistics(side);
+            var sideStatistics = getSemiEmptySideStatistics(side);
             xCnt += sideStatistics[0];
             oCnt += sideStatistics[1];
             int yEmptyCell = sideStatistics[2];
@@ -226,5 +210,35 @@ public class RobotEmulator {
             sideIndex++;
         }
         return new int[]{-1, -1};
+    }
+
+    private int[] getSemiFullSideStatistics(List<Character> side) {
+        int yEmptyCell = 1;     //Y coordinate for empty cell in the row
+        int xCnt = 0;       //counting how many X for each side
+        int oCnt = 0;       //counting how many O for each side
+        for (int elem = 0; elem < 3; elem++) {
+            if (side.get(elem) == 'X') {
+                xCnt++;
+            } else if (side.get(elem) == 'O') {
+                oCnt++;
+            } else if (side.get(elem) == ' ') {
+                yEmptyCell = elem;
+            }
+        }
+        return new int[]{xCnt, oCnt, yEmptyCell};
+    }
+
+    private int[] getSemiEmptySideStatistics(List<Character> side) {
+        int yEmptyCell = 1;     //Y coordinate for empty cell in the row
+        int xCnt = 0;       //counting how many X for each side
+        int oCnt = 0;       //counting how many O for each side
+        for (int elem = 0; elem < 3; elem++) {
+            if (side.get(elem) == 'X') {
+                xCnt++;
+            } else if (side.get(elem) == 'O') {
+                oCnt++;
+            }
+        }
+        return new int[]{xCnt, oCnt, yEmptyCell};
     }
 }

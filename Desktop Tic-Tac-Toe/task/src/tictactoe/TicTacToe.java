@@ -22,6 +22,7 @@ public class TicTacToe extends JFrame {
         setTitle("Tic Tac Toe");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(450, 450);
+        setLocationRelativeTo(null);
         setMinimumSize(dimension);
         setPreferredSize(dimension);
         setBackground(Color.BLACK);

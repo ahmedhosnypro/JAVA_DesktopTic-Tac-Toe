@@ -43,6 +43,11 @@
       <module name="Desktop_Tic-Tac-Toe.Topics-Generics_and_Object-Theory.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Generics_and_Object-What_is_a_type.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Generics_and_Object-What_is_wrong.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Hierarchy_of_exceptions-BadRequestException.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Hierarchy_of_exceptions-Checked_exceptions.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Hierarchy_of_exceptions-Overview_the_hierarchy.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Hierarchy_of_exceptions-Theory.main" target="11" />
+      <module name="Desktop_Tic-Tac-Toe.Topics-Hierarchy_of_exceptions-UncheckedException.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Infinite_streams-Generating_cats.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Infinite_streams-Theory.main" target="11" />
       <module name="Desktop_Tic-Tac-Toe.Topics-Lambda_expressions-Creating_a_closure.main" target="11" />

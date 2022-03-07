@@ -12,7 +12,7 @@ public class StatusBar extends JPanel {
 
     public StatusBar(String name, TicTacToe ticTacToe) {
         setName(name);
-        setBackground(Color.BLACK);
+        setBackground(Color.ORANGE);
 
         this.ticTacToe = ticTacToe;
         setBorder(border);
@@ -23,8 +23,7 @@ public class StatusBar extends JPanel {
 
     private void setFields() {
         labelStatus.setName("LabelStatus");
-        labelStatus.setBackground(Color.BLACK);
-        labelStatus.setForeground(Color.LIGHT_GRAY);
+        labelStatus.setForeground(Color.BLACK);
         labelStatus.setFont(new Font("", Font.BOLD, 15));
     }
 
@@ -32,26 +31,32 @@ public class StatusBar extends JPanel {
         String text = "";
         if (ticTacToe.getToolBar().buttonStartReset.getText().equals("Start")) {
             text = "Game is not started";
+            setBackground(Color.ORANGE);
+            labelStatus.setForeground(Color.BLACK);
         } else if (ticTacToe.getToolBar().buttonStartReset.getText().equals("Reset")) {
-            switch (ticTacToe.getBoard().getBoardStatus()) {
+            var boardStatus = ticTacToe.getBoard().getBoardStatus();
+            switch (boardStatus) {
                 case NOT_STARTED:
                 case X_TURN:
-                    text = String.format("The turn of %s Player (%c)",
-                            ticTacToe.getCurrentPlayer().getName(),
-                            ticTacToe.getCurrentPlayer().getGameChar());
                 case O_TURN:
                     text = String.format("The turn of %s Player (%c)",
                             ticTacToe.getCurrentPlayer().getName(),
                             ticTacToe.getCurrentPlayer().getGameChar());
+                    setBackground(boardStatus.getBackgroundColor());
+                    labelStatus.setForeground(boardStatus.getForegroundColor());
                     break;
                 case X_WINS:
                 case O_WINS:
                     text = String.format("The %s Player (%c) wins",
                             ticTacToe.getCurrentPlayer().getName(),
                             ticTacToe.getCurrentPlayer().getGameChar());
+                    setBackground(boardStatus.getBackgroundColor());
+                    labelStatus.setForeground(boardStatus.getForegroundColor());
                     break;
                 case DRAW:
                     text = "Draw";
+                    setBackground(boardStatus.getBackgroundColor());
+                    labelStatus.setForeground(boardStatus.getForegroundColor());
                     break;
                 default:
                     text = "Game in progress";

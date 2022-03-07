@@ -1,0 +1,8 @@
+content:
+- Theory
+- The name of the base class
+- Overview the hierarchy
+- UncheckedException
+- Checked exceptions
+- The name of the base class (1)
+- BadRequestException

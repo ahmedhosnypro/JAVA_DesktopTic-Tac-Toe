@@ -16,3 +16,4 @@ content:
 - Streams of primitives
 - Stream pipelines
 - Timers
+- Hierarchy of exceptions

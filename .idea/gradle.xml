@@ -54,6 +54,11 @@
             <option value="$PROJECT_DIR$/Topics/Generics and Object/Theory" />
             <option value="$PROJECT_DIR$/Topics/Generics and Object/What is a type" />
             <option value="$PROJECT_DIR$/Topics/Generics and Object/What is wrong" />
+            <option value="$PROJECT_DIR$/Topics/Hierarchy of exceptions/BadRequestException" />
+            <option value="$PROJECT_DIR$/Topics/Hierarchy of exceptions/Checked exceptions" />
+            <option value="$PROJECT_DIR$/Topics/Hierarchy of exceptions/Overview the hierarchy" />
+            <option value="$PROJECT_DIR$/Topics/Hierarchy of exceptions/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Hierarchy of exceptions/UncheckedException" />
             <option value="$PROJECT_DIR$/Topics/Infinite streams/Generating cats" />
             <option value="$PROJECT_DIR$/Topics/Infinite streams/Theory" />
             <option value="$PROJECT_DIR$/Topics/Lambda expressions/Creating a closure" />

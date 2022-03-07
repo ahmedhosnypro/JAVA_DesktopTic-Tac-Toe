@@ -55,7 +55,7 @@ public class Player {
                 }
             };
 
-            LocalDateTime timeToExecute = LocalDateTime.now().plusSeconds(3);
+            LocalDateTime timeToExecute = LocalDateTime.now().plusSeconds(1);
             Date execTime = Date.from(timeToExecute.atZone(ZoneId.systemDefault()).toInstant());
             timer.schedule(task, execTime);
         }
@@ -82,7 +82,7 @@ public class Player {
     }
 
     void stopPlaying() {
-        if(Objects.nonNull(timer)) {
+        if (Objects.nonNull(timer)) {
             timer.cancel();
         }
     }
